@@ -1,0 +1,43 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: zombie-pod-killer
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: zombie-pod-killer
+data:
+{{ (.Files.Glob "scripts/zombie-pod-killer.sh").AsConfig | indent 2 }}
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: zombie-pod-killer
+spec: # Cron Job
+  schedule: {{ .Values.cron | quote }}
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec: # Job
+      backoffLimit: 2
+      template:
+        spec: # Pod
+          serviceAccountName: zombie-pod-killer
+          containers:
+          - name: zombie-pod-killer
+            image: bitnami/kubectl
+            command: ["/bin/sh", "-c"]
+            args: ["cat /bin/entrypoint.sh && /bin/entrypoint.sh"]
+            volumeMounts:
+            - name: configmap-volume
+              mountPath: /bin/entrypoint.sh
+              readOnly: true
+              subPath: zombie-pod-killer.sh
+          volumes:
+          - name: configmap-volume
+            configMap:
+              defaultMode: 0770
+              name: zombie-pod-killer
+          restartPolicy: Never
