@@ -1,0 +1,31 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: mutating-gtoken-webhook-cfg
+  labels:
+    app: gtoken-webhook
+  annotations:
+    cert-manager.io/inject-ca-from: gtoken/gtoken-webhook
+webhooks:
+  - name: gtoken.doit-intl.com
+    sideEffects: None
+    admissionReviewVersions: ["v1", "v1beta1"]
+    clientConfig:
+      service:
+        name: gtoken-webhook-svc
+        namespace: gtoken
+        path: "/pods"
+    # caBundle: ${CA_BUNDLE}
+    # select namespaces without the label "admission.gtoken/ignore"
+    namespaceSelector:
+      matchExpressions:
+        - key: admission.gtoken/ignore
+          operator: DoesNotExist
+    rules:
+      - operations: ["CREATE"]
+        apiGroups: ["*"]
+        apiVersions: ["*"]
+        resources: ["pods"]
+        scope: "Namespaced"
+    # ignore failures
+    failurePolicy: Ignore
