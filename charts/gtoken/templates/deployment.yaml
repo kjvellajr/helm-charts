@@ -36,8 +36,8 @@ spec:
           args:
             - --log-level=debug
             - server
-            - --tls-cert-file=/etc/webhook/certs/cert.pem
-            - --tls-private-key-file=/etc/webhook/certs/key.pem
+            - --tls-cert-file=/etc/webhook/certs/tls.crt
+            - --tls-private-key-file=/etc/webhook/certs/tls.key
             - --pull-policy=Always
           volumeMounts:
             - name: webhook-certs
