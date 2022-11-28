@@ -38,10 +38,10 @@ metadata:
 spec:
   commonName: gtoken cert
   dnsNames:
-  - gtoken-webhook
-  - gtoken-webhook.{{ .Release.Namespace }}
-  - gtoken-webhook.{{ .Release.Namespace }}.svc
-  - gtoken-webhook.{{ .Release.Namespace }}.svc.cluster.local
+  - {{ include "gtoken.fullname" . }}
+  - {{ include "gtoken.fullname" . }}.{{ .Release.Namespace }}
+  - {{ include "gtoken.fullname" . }}.{{ .Release.Namespace }}.svc
+  - {{ include "gtoken.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local
   issuerRef:
     kind: Issuer
     name: gtoken-ca-issuer

@@ -5,15 +5,15 @@ metadata:
   labels:
     app: gtoken-webhook
   annotations:
-    cert-manager.io/inject-ca-from: gtoken/gtoken-webhook
+    cert-manager.io/inject-ca-from: gtoken/gtoken-webhook-selfsigned-ca
 webhooks:
   - name: gtoken.doit-intl.com
     sideEffects: None
     admissionReviewVersions: ["v1", "v1beta1"]
     clientConfig:
       service:
-        name: gtoken-webhook-svc
-        namespace: gtoken
+        name: {{ include "gtoken.fullname" . }}
+        namespace: {{ .Release.Namespace }}
         path: "/pods"
     # caBundle: ${CA_BUNDLE}
     # select namespaces without the label "admission.gtoken/ignore"
