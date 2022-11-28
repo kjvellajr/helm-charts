@@ -3,6 +3,16 @@ entries:
   gtoken:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2022-11-28T16:36:49.881300605Z"
+    description: A Helm chart to securely access AWS Services from GKE cluster
+    digest: d34c5c45327638bb12ef93911146b6a52430daf57d211a735fd75e6063d59d8e
+    name: gtoken
+    type: application
+    urls:
+    - https://github.com/kjvellajr/helm-charts/releases/download/gtoken-0.4.0/gtoken-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2022-11-28T16:19:16.761898063Z"
     description: A Helm chart to securely access AWS Services from GKE cluster
     digest: 71c396cb8761ff4d6f07e4e47a060e91510ef2b62ff48d1a951b0a6eadd6caa3
