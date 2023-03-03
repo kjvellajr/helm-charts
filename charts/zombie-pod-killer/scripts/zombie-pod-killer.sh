@@ -13,3 +13,14 @@ kubectl get pods \
     | "--namespace=" + (.metadata.namespace) + " " + (.metadata.name)' \
   | xargs --no-run-if-empty -L 1 kubectl delete pod
 
+kubectl get pods \
+  --all-namespaces \
+  --output json \
+  | jq -r '
+    [.items[] | select(
+        .status.phase=="Failed"
+        and .status.reason=="NodeShutdown"
+    )]
+    | .[]
+    | "--namespace=" + (.metadata.namespace) + " " + (.metadata.name)' \
+  | xargs --no-run-if-empty -L 1 kubectl delete pod
