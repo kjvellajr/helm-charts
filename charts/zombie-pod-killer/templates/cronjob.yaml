@@ -17,6 +17,7 @@ metadata:
   name: zombie-pod-killer
 spec: # Cron Job
   schedule: {{ .Values.cron | quote }}
+  concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
   jobTemplate:
