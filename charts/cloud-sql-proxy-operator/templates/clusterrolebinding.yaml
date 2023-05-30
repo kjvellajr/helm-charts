@@ -1,0 +1,26 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cloud-sql-proxy-operator-manager-rolebinding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cloud-sql-proxy-operator-manager-role
+subjects:
+  - kind: ServiceAccount
+    name: cloud-sql-proxy-operator-controller-manager
+    namespace: {{ .Release.Namespace }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cloud-sql-proxy-operator-proxy-rolebinding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cloud-sql-proxy-operator-proxy-role
+subjects:
+  - kind: ServiceAccount
+    name: cloud-sql-proxy-operator-controller-manager
+    namespace: {{ .Release.Namespace }}
