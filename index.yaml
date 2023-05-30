@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  cloud-sql-proxy-operator:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-05-30T14:51:27.369929752Z"
+    description: A Helm chart for Kubernetes
+    digest: a8218021a9bd9728c877034a698dfd5528555b46c8e9dfd3a6da7f81ba05a8ed
+    name: cloud-sql-proxy-operator
+    type: application
+    urls:
+    - https://github.com/kjvellajr/helm-charts/releases/download/cloud-sql-proxy-operator-1.0.0/cloud-sql-proxy-operator-1.0.0.tgz
+    version: 1.0.0
   gtoken:
   - apiVersion: v2
     appVersion: 1.16.0
