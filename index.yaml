@@ -3,6 +3,21 @@ entries:
   cloud-sql-proxy-operator:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2023-05-31T14:03:24.060989806Z"
+    dependencies:
+    - condition: crds.enabled
+      name: crds
+      repository: ""
+      version: 0.0.0
+    description: A Helm chart for Kubernetes
+    digest: 493c3469dd426c1d226d911b168d40a552eda7bc80cf275cc7502b481b8f46c1
+    name: cloud-sql-proxy-operator
+    type: application
+    urls:
+    - https://github.com/kjvellajr/helm-charts/releases/download/cloud-sql-proxy-operator-1.1.0/cloud-sql-proxy-operator-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2023-05-30T14:51:27.369929752Z"
     description: A Helm chart for Kubernetes
     digest: a8218021a9bd9728c877034a698dfd5528555b46c8e9dfd3a6da7f81ba05a8ed
@@ -129,4 +144,4 @@ entries:
     urls:
     - https://github.com/kjvellajr/helm-charts/releases/download/zombie-pod-killer-1.0.0/zombie-pod-killer-1.0.0.tgz
     version: 1.0.0
-generated: "2022-10-17T20:15:19.951901505Z"
+generated: "2023-05-31T14:03:24.061017006Z"
