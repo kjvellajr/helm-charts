@@ -1,3 +1,5 @@
+crds:
+  enabled: true
 podSecurityContext:
   runAsNonRoot: true
 securityContext:
