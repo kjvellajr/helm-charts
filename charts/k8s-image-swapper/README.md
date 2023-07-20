@@ -1,6 +1,6 @@
 # k8s-image-swapper
 
-![Version: 1.2.0](https://img.shields.io/badge/Version-1.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.3.0](https://img.shields.io/badge/AppVersion-1.3.0-informational?style=flat-square)
+![Version: 1.6.1](https://img.shields.io/badge/Version-1.6.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.4.1](https://img.shields.io/badge/AppVersion-1.4.1-informational?style=flat-square)
 
 Mirror images into your own registry and swap image references automatically.
 
@@ -23,6 +23,7 @@ Mirror images into your own registry and swap image references automatically.
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | awsSecretName | string | `""` |  |
 | certmanager.enabled | bool | `false` |  |
+| commonLabels | object | `{}` | Labels that will be added on all the resources (not in selectors) |
 | config.dryRun | bool | `true` |  |
 | config.logFormat | string | `"console"` |  |
 | config.logLevel | string | `"debug"` |  |
@@ -30,6 +31,7 @@ Mirror images into your own registry and swap image references automatically.
 | config.target.aws.accountId | string | `"12345678"` |  |
 | config.target.aws.region | string | `"ap-southeast-2"` |  |
 | containerPort | int | `8443` |  |
+| deployment.annotations | object | `{}` |  |
 | dev.enabled | bool | `false` |  |
 | dev.webhookURL | string | `"https://xxx.ngrok.io"` |  |
 | fullnameOverride | string | `""` |  |
@@ -42,12 +44,14 @@ Mirror images into your own registry and swap image references automatically.
 | nodeSelector | object | `{}` |  |
 | patch.enabled | bool | `true` |  |
 | patch.image.pullPolicy | string | `"IfNotPresent"` |  |
-| patch.image.repository | string | `"jettech/kube-webhook-certgen"` |  |
-| patch.image.tag | string | `"v1.5.2"` |  |
+| patch.image.repository | string | `"k8s.gcr.io/ingress-nginx/kube-webhook-certgen"` |  |
+| patch.image.tag | string | `"v1.3.0"` |  |
 | patch.nodeSelector | object | `{}` |  |
 | patch.podAnnotations | object | `{}` |  |
 | patch.priorityClassName | string | `""` |  |
 | patch.resources | object | `{}` |  |
+| pdb.enabled | bool | `false` |  |
+| pdb.minAvailable | string | `"1"` |  |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
 | podSecurityPolicy.enabled | bool | `false` |  |

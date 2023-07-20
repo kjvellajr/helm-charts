@@ -25,6 +25,17 @@
     "awsSecretName": {
       "type": "string"
     },
+    "certmanager": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "commonLabels": {
+      "type": "object"
+    },
     "config": {
       "type": "object",
       "properties": {
@@ -73,6 +84,14 @@
     },
     "containerPort": {
       "type": "integer"
+    },
+    "deployment": {
+      "type": "object",
+      "properties": {
+        "annotations": {
+          "type": "object"
+        }
+      }
     },
     "dev": {
       "type": "object",
@@ -149,11 +168,14 @@
         }
       }
     },
-    "certmanager": {
+    "pdb": {
       "type": "object",
       "properties": {
         "enabled": {
           "type": "boolean"
+        },
+        "minAvailable": {
+          "type": "string"
         }
       }
     },

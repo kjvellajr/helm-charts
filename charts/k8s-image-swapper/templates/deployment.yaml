@@ -4,6 +4,10 @@ metadata:
   name: {{ include "k8s-image-swapper.fullname" . }}
   labels:
     {{- include "k8s-image-swapper.labels" . | nindent 4 }}
+  {{- with .Values.deployment.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
@@ -19,7 +23,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "k8s-image-swapper.selectorLabels" . | nindent 8 }}
+        {{- include "k8s-image-swapper.labels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
