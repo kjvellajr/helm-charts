@@ -3,6 +3,16 @@ entries:
   cert-health:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-09-12T18:49:42.483805648Z"
+    description: A Helm chart for Kubernetes
+    digest: ef36f4355b0ba734e5ab524dc60681429016cbb1a5396ce49a57ff3c43c00224
+    name: cert-health
+    type: application
+    urls:
+    - https://github.com/kjvellajr/helm-charts/releases/download/cert-health-1.0.1/cert-health-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-09-12T18:38:44.858502117Z"
     description: A Helm chart for Kubernetes
     digest: b92b0eb08442b8c2a115eb6c33ecf971ef673f53c306035533246e706e6850eb
@@ -180,4 +190,4 @@ entries:
     urls:
     - https://github.com/kjvellajr/helm-charts/releases/download/zombie-pod-killer-1.0.0/zombie-pod-killer-1.0.0.tgz
     version: 1.0.0
-generated: "2023-09-12T18:38:44.858522419Z"
+generated: "2023-09-12T18:49:42.483831648Z"
