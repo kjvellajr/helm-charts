@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 now=$(date +%Y-%m-%dT%H:%M:%SZ -d "now")
 certs=$(kubectl get certificate --all-namespaces -o jsonpath='{range .items[*]}{"ERROR: Certificate "}{@.metadata.namespace}{"/"}{@.metadata.name}{" was eligible for renewal at "}{@.status.renewalTime}{"\n"}{end}')
