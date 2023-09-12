@@ -1,0 +1,21 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: cert-health
+rules:
+- apiGroups: ["cert-manager.io"] 
+  resources: ["certificates"]
+  verbs: ["get", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cert-health
+subjects:
+- kind: ServiceAccount
+  name: cert-health
+  namespace: {{ .Release.Namespace }}
+roleRef:
+  kind: ClusterRole
+  name: cert-health
+  apiGroup: "rbac.authorization.k8s.io"

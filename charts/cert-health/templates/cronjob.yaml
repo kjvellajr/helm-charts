@@ -1,0 +1,52 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: cert-health
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cert-health
+data:
+{{ (.Files.Glob "scripts/cert-health.sh").AsConfig | indent 2 }}
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cert-health
+spec: # Cron Job
+  schedule: {{ .Values.cron | quote }}
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec: # Job
+      backoffLimit: 2
+      template:
+        spec: # Pod
+          serviceAccountName: cert-health
+          {{- with .Values.podSecurityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          containers:
+          - name: cert-health
+            {{- with .Values.securityContext }}
+            securityContext:
+              {{- toYaml . | nindent 14 }}
+            {{- end }}
+            image: bitnami/kubectl
+            command: ["/bin/sh", "-c"]
+            args: ["cat /bin/entrypoint.sh && /bin/entrypoint.sh"]
+            volumeMounts:
+            - name: configmap-volume
+              mountPath: /bin/entrypoint.sh
+              readOnly: true
+              subPath: cert-health.sh
+          volumes:
+          - name: configmap-volume
+            configMap:
+              defaultMode: 0770
+              name: cert-health
+          restartPolicy: Never
