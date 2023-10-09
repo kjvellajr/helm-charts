@@ -1,5 +1,8 @@
 cron: "*/10 * * * *"
 
+labels: {}
+  # foo: bar
+
 podSecurityContext: {}
   # fsGroup: 2000
 

@@ -15,16 +15,30 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: zombie-pod-killer
+  {{- with .Values.labels}}
+  labels:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec: # Cron Job
   schedule: {{ .Values.cron | quote }}
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
   jobTemplate:
-    spec: # Job
+    metadata: # Job
+      {{- with .Values.labels}}
+      labels:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    spec:
       backoffLimit: 2
       template:
-        spec: # Pod
+        metadata: # Pod
+          {{- with .Values.labels}}
+          labels:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+        spec:
           serviceAccountName: zombie-pod-killer
           {{- with .Values.podSecurityContext }}
           securityContext:
