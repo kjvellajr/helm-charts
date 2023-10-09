@@ -152,6 +152,16 @@ entries:
   zombie-pod-killer:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-10-09T14:26:53.707202338Z"
+    description: A Helm chart for Kubernetes
+    digest: 0855490c455702f9d29dfeffcd30beb2ebefd7af9e80cc1369730413b53c0a75
+    name: zombie-pod-killer
+    type: application
+    urls:
+    - https://github.com/kjvellajr/helm-charts/releases/download/zombie-pod-killer-1.4.0/zombie-pod-killer-1.4.0.tgz
+    version: 1.4.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-05-18T02:03:44.288318386Z"
     description: A Helm chart for Kubernetes
     digest: 385108df79c023f0d01912085f8a5c68fe124491515de5ddcbbc02241f9b1035
@@ -190,4 +200,4 @@ entries:
     urls:
     - https://github.com/kjvellajr/helm-charts/releases/download/zombie-pod-killer-1.0.0/zombie-pod-killer-1.0.0.tgz
     version: 1.0.0
-generated: "2023-09-12T18:49:42.483831648Z"
+generated: "2023-10-09T14:26:53.707256437Z"
