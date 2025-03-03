@@ -149,6 +149,17 @@ entries:
     urls:
     - https://github.com/kjvellajr/helm-charts/releases/download/k8s-image-swapper-1.2.0/k8s-image-swapper-1.2.0.tgz
     version: 1.2.0
+  k8s-job-cleaner:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-03-03T19:48:44.043689398Z"
+    description: A Helm chart to distribute the project k8s-job-cleaner
+    digest: 1c3d4f7bfcea16ea76e0c2c55b0790a1b99944298cd268521f20e84d9529be21
+    name: k8s-job-cleaner
+    type: application
+    urls:
+    - https://github.com/kjvellajr/helm-charts/releases/download/k8s-job-cleaner-0.1.0/k8s-job-cleaner-0.1.0.tgz
+    version: 0.1.0
   zombie-pod-killer:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -200,4 +211,4 @@ entries:
     urls:
     - https://github.com/kjvellajr/helm-charts/releases/download/zombie-pod-killer-1.0.0/zombie-pod-killer-1.0.0.tgz
     version: 1.0.0
-generated: "2023-10-09T14:26:53.707256437Z"
+generated: "2025-03-03T19:48:44.043725075Z"
