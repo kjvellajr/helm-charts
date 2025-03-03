@@ -152,6 +152,16 @@ entries:
   k8s-job-cleaner:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2025-03-03T20:02:59.208462179Z"
+    description: A Helm chart to distribute the project k8s-job-cleaner
+    digest: 920f56e1c951e51f49e7a64f58ece13af48312d64e906326f5798bc61a6aaadf
+    name: k8s-job-cleaner
+    type: application
+    urls:
+    - https://github.com/kjvellajr/helm-charts/releases/download/k8s-job-cleaner-0.1.2/k8s-job-cleaner-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2025-03-03T19:58:04.214401253Z"
     description: A Helm chart to distribute the project k8s-job-cleaner
     digest: 3cc3ebc0fb0697dbe2bb78e79c3ebd6b6cf33b88f958ab902648904928cc5b83
@@ -221,4 +231,4 @@ entries:
     urls:
     - https://github.com/kjvellajr/helm-charts/releases/download/zombie-pod-killer-1.0.0/zombie-pod-killer-1.0.0.tgz
     version: 1.0.0
-generated: "2025-03-03T19:58:04.214439615Z"
+generated: "2025-03-03T20:02:59.208501863Z"
